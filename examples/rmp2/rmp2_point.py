@@ -1,4 +1,3 @@
-from hmac import trans_36
 from rmp2.rmpgraph.rmpgraph import RMPGraph
 from rmp2.rmpgraph.rmps.rmps import RMP
 from rmp2.utils.tf_utils import solve
