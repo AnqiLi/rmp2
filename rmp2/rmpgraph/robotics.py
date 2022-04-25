@@ -48,7 +48,7 @@ class RobotRMPGraph(RMPGraph):
             assert robot_name == config['robot_name']
         else:
             robot_name = config['robot_name']
-            
+
         urdf_path = get_robot_urdf_path(robot_name)
 
         self.robot = Robot(urdf_path, workspace_dim=workspace_dim, dtype=dtype)
@@ -107,7 +107,7 @@ class RobotRMPGraph(RMPGraph):
             body_obstacle_box_maxs = tf.convert_to_tensor([body_obstacle_box_maxs], dtype=dtype)
 
             body_obstacles['box'] = {
-                'obstacle_mins': body_obstacle_box_mins, 
+                'obstacle_mins': body_obstacle_box_mins,
                 'obstacle_maxs': body_obstacle_box_maxs
             }
 
@@ -172,7 +172,7 @@ class RobotRMPGraph(RMPGraph):
             elif key == 'target_rmp':
                 eef_pos = link_positions[self.eef_link]
                 x.append(eef_pos * 1.)
-            
+
             # ----------------------------
             # collision avoidance
             elif key == 'collision_rmp':
@@ -184,8 +184,8 @@ class RobotRMPGraph(RMPGraph):
                 obstacle_radii = obstacles[:, :, -1]
 
                 obstacle_dists = dist2balls(
-                    control_points, 
-                    self.arm_collision_radii, 
+                    control_points,
+                    self.arm_collision_radii,
                     obstacle_centers, obstacle_radii)
 
                 for body_obstacle_type, body_obstacle in self.body_obstacles.items():
